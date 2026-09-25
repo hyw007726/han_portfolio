@@ -1,6 +1,7 @@
 // @flow strict
 
 import { personalData } from "@/utils/data/personal-data";
+import { notFound } from "next/navigation";
 import BlogCard from "../components/homepage/blog/blog-card";
 
 async function getBlogs() {
@@ -15,6 +16,10 @@ async function getBlogs() {
 };
 
 async function page() {
+  if (!personalData.devUsername) {
+    notFound();
+  }
+
   const blogs = await getBlogs();
 
   return (

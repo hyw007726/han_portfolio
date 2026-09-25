@@ -1,5 +1,6 @@
 // @flow strict
 import { educations } from "@/utils/data/educations";
+import { publicAssetPath } from "@/utils/public-asset-path";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import lottieFile from '../../../assets/lottie/study.json';
@@ -10,7 +11,7 @@ function Education() {
   return (
     <div id="education" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       <Image
-        src="/section.svg"
+        src={publicAssetPath("/section.svg")}
         alt="Hero"
         width={1572}
         height={795}
@@ -48,7 +49,7 @@ function Education() {
                   <GlowCard key={education.id} identifier={`education-${education.id}`}>
                     <div className="p-3 relative text-white">
                       <Image
-                        src="/blur-23.svg"
+                        src={publicAssetPath("/blur-23.svg")}
                         alt="Hero"
                         width={1080}
                         height={200}
@@ -68,6 +69,7 @@ function Education() {
                             {education.title}
                           </p>
                           <p className="text-sm sm:text-base">{education.institution}</p>
+                          {education.honors && <p className="mt-1 text-sm text-gray-300">{education.honors}</p>}
                         </div>
                       </div>
                     </div>

@@ -2,15 +2,15 @@
     <img height="100" src="https://github.com/said7388/developer-portfolio/assets/77630868/c0064908-cd5f-4751-a77c-eba90a62b55c">
 </p>
 
-<h1 align="center">Developer Portfolio</h1>
+<h1 align="center">Han Yawei - Software Engineer</h1>
 
 <p align="center">
-  <strong>A modern, responsive, and customizable portfolio template for developers and freelancers</strong>
+  <strong>A personal portfolio built with Next.js, React and Tailwind CSS</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-16.0.1-black?style=for-the-badge&logo=next.js" alt="Next.js 16.0.1">
-  <img src="https://img.shields.io/badge/React-19.2.0-blue?style=for-the-badge&logo=react" alt="React 19.2.0">
+  <img src="https://img.shields.io/badge/Next.js-16.2.7-black?style=for-the-badge&logo=next.js" alt="Next.js 16.2.7">
+  <img src="https://img.shields.io/badge/React-19.2.7-blue?style=for-the-badge&logo=react" alt="React 19.2.7">
   <img src="https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS 4">
   <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License">
 </p>
@@ -28,11 +28,30 @@
 
 ## Overview
 
-A professional portfolio template built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**. Features a modern App Router architecture, server components, and data-driven configuration for easy customization.
+This portfolio is configured for Han Yawei and based on the [Developer Portfolio template](https://github.com/said7388/developer-portfolio). Content lives in `utils/data/`, and the profile photo is `public/han-yawei.jpg`. No phone number or CV is published. The blog stays hidden until a dev.to username is provided; visitors can make contact by email.
+
+---
+
+## GitHub Pages
+
+This repository deploys a static export at `https://hyw007726.github.io/han_portfolio/`. The workflow in `.github/workflows/deploy-pages.yml` builds on pushes to `main`, sets `NEXT_PUBLIC_BASE_PATH=/han_portfolio`, and publishes `.next-pages/`. Enable **Settings → Pages → Build and deployment → Source: GitHub Actions** in your own repository. The Pages website is publicly accessible even if the source repository is private.
+
+To check the export locally in PowerShell:
+
+```powershell
+npm ci
+$env:NEXT_PUBLIC_BASE_PATH = '/han_portfolio'
+npm run build
+Remove-Item Env:NEXT_PUBLIC_BASE_PATH
+```
+
+If the repository name changes, update `NEXT_PUBLIC_BASE_PATH` in the workflow. A regular `npm run dev` still serves the site at `http://localhost:3000`. GitHub Pages does not run Next.js API routes, so contact is through an email link, not a form.
 
 ---
 
 ## Demo :movie_camera:
+
+The screenshot and link below show the original template, not this personalized portfolio.
 
 <p align="center">
   <img src="./public/image/screen.png" alt="Portfolio Screenshot" width="100%">
@@ -40,7 +59,7 @@ A professional portfolio template built with **Next.js 16**, **React 19**, and *
 
 <p align="center">
   <a href="https://abusaid.netlify.app/" target="_blank">
-    <strong>🚀 View Live Demo</strong>
+    <strong>View original template demo</strong>
   </a>
 </p>
 
@@ -51,11 +70,11 @@ A professional portfolio template built with **Next.js 16**, **React 19**, and *
 - ✅ **Cutting-Edge Tech Stack**: Built with Next.js 16, React 19, and Tailwind CSS 4
 - ✅ **Fully Responsive**: Optimized for all devices and screen sizes
 - ✅ **SEO Optimized**: Better visibility on search engines with Next.js metadata API
-- ✅ **Blazing Fast Performance**: Leverages Next.js 16 server components and streaming
+- ✅ **Fast Static Pages**: Pre-rendered at build time for GitHub Pages
 - ✅ **App Router**: Uses the modern Next.js App Router architecture
 - ✅ **Easy Customization**: Simple data-driven configuration
-- ✅ **Contact Form**: Integrated email and Telegram notifications
-- ✅ **Blog Integration**: Automatically fetch posts from dev.to
+- ✅ **Email Contact**: Direct link to your mail app
+- ✅ **Optional Blog**: Fetches posts from dev.to at build time when configured
 - ✅ **Dark Theme**: Beautiful gradient design with Lottie animations
 - ✅ **Docker Support**: Easy containerized deployment
 - ✅ **Google Analytics**: Track visitor insights with GTM support
@@ -70,11 +89,9 @@ This portfolio leverages the latest Next.js 16 and React 19 capabilities:
 | ------------------------ | ------------------------------------------------------------ |
 | **App Router**           | Modern routing with layouts and nested routes                |
 | **Server Components**    | Improved performance with zero JavaScript for static content |
-| **Server Actions**       | Simplified form handling in contact page                     |
 | **Metadata API**         | Enhanced SEO with type-safe metadata                         |
-| **Image Optimization**   | Automatic image optimization with `next/image`               |
+| **Image Components**     | Responsive images with static hosting support                |
 | **Font Optimization**    | Automatic font loading with `next/font`                      |
-| **Streaming & Suspense** | Better loading states and progressive rendering              |
 | **React 19 Features**    | Actions, use hook, and improved hydration                    |
 
 ---
@@ -89,14 +106,15 @@ This portfolio leverages the latest Next.js 16 and React 19 capabilities:
 | 🛠️ **Skills**     | Technical skills with animated marquee display      |
 | 🚀 **Projects**   | Showcase your best work with descriptions and links |
 | 🎓 **Education**  | Academic background and certifications              |
-| 📝 **Blog**       | Latest articles from dev.to (auto-fetched)          |
-| 📧 **Contact**    | Get in touch form with email/Telegram integration   |
+| 📝 **Blog**       | Optional articles from dev.to, fetched at build time |
+| 📧 **Contact**    | Direct email link                                   |
 
 ---
 
 ## Table of Contents :scroll:
 
 - [Overview](#overview)
+- [GitHub Pages](#github-pages)
 - [Demo](#demo-movie_camera)
 - [Features](#features-sparkles)
 - [Sections](#sections-bookmark)
@@ -106,8 +124,6 @@ This portfolio leverages the latest Next.js 16 and React 19 capabilities:
 - [Usage](#usage-joystick)
 - [Deployment](#deployment-rocket)
 - [Tutorials](#tutorials-wrench)
-  - [Gmail App Password Setup](#gmail-app-password-setup)
-  - [Create a Telegram Bot](#create-a-telegram-bot)
   - [Fetching Blog from dev.to](#fetching-blog-from-devto)
 - [Packages Used](#packages-used-package)
 - [Contributing](#contributing-handshake)
@@ -120,13 +136,11 @@ This portfolio leverages the latest Next.js 16 and React 19 capabilities:
 
 | Technology       | Version | Purpose                                   |
 | ---------------- | ------- | ----------------------------------------- |
-| **Next.js**      | 16.0.1  | React framework with App Router           |
-| **React**        | 19.2.0  | UI component library with latest features |
+| **Next.js**      | 16.2.7  | React framework with App Router           |
+| **React**        | 19.2.7  | UI component library with latest features |
 | **Tailwind CSS** | 4.x     | Utility-first CSS framework               |
 | **SASS**         | Latest  | CSS preprocessor                          |
 | **Lottie**       | Latest  | Lightweight animations                    |
-| **Nodemailer**   | Latest  | Email sending functionality               |
-| **Axios**        | Latest  | HTTP client for API requests              |
 | **Docker**       | -       | Containerization platform                 |
 
 ---
@@ -139,11 +153,11 @@ Before you begin, ensure you have the following installed on your machine:
 
 | Tool                   | Minimum Version | Download Link                               |
 | ---------------------- | --------------- | ------------------------------------------- |
-| **Node.js**            | v18.17.0+       | [Download](https://nodejs.org/en/download/) |
+| **Node.js**            | v20.9.0+       | [Download](https://nodejs.org/en/download/) |
 | **Git**                | Latest          | [Download](https://git-scm.com/downloads)   |
 | **pnpm** (recommended) | Latest          | [Install](https://pnpm.io/installation)     |
 
-> **Note**: Next.js 16 requires Node.js 18.17 or later. Node.js 20+ is recommended for optimal performance.
+> **Note**: The GitHub Pages workflow uses Node.js 22.
 
 #### Verify Installation
 
@@ -162,8 +176,8 @@ pnpm --version  # or npm --version
 ### 1. Fork and Clone the Repository
 
 ```bash
-git clone https://github.com/<YOUR_GITHUB_USERNAME>/developer-portfolio.git
-cd developer-portfolio
+git clone https://github.com/hyw007726/han_portfolio.git
+cd han_portfolio
 ```
 
 ### 2. Install Dependencies
@@ -173,7 +187,7 @@ cd developer-portfolio
 pnpm install
 
 # Using npm
-npm install
+npm ci
 
 # Using yarn
 yarn install
@@ -246,22 +260,12 @@ docker run -p 3000:3000 --name portfolio-prod developer-portfolio:prod
 
 ### Environment Variables Configuration
 
-Create a `.env` file in the root directory with the following variables:
+Only Google Tag Manager is optional. If needed, create a `.env` file in the root directory:
 
 ```env
 # Google Tag Manager (Optional - for analytics)
 NEXT_PUBLIC_GTM=GTM-XXXXXXX
 
-# Your deployed app URL
-NEXT_PUBLIC_APP_URL=https://your-domain.com
-
-# Telegram Bot Configuration (for contact form notifications)
-TELEGRAM_BOT_TOKEN=your_bot_token_here
-TELEGRAM_CHAT_ID=your_chat_id_here
-
-# Gmail Configuration (for contact form emails)
-GMAIL_PASSKEY=your_gmail_app_password
-EMAIL_ADDRESS=your_email@gmail.com
 ```
 
 #### Variable Descriptions:
@@ -269,13 +273,9 @@ EMAIL_ADDRESS=your_email@gmail.com
 | Variable              | Required | Description                                  |
 | --------------------- | -------- | -------------------------------------------- |
 | `NEXT_PUBLIC_GTM`     | No       | Google Tag Manager ID for analytics tracking |
-| `NEXT_PUBLIC_APP_URL` | Yes      | Your portfolio's public URL                  |
-| `TELEGRAM_BOT_TOKEN`  | No       | Token for Telegram bot notifications         |
-| `TELEGRAM_CHAT_ID`    | No       | Your Telegram chat ID for receiving messages |
-| `GMAIL_PASSKEY`       | No       | Gmail app password for email notifications   |
-| `EMAIL_ADDRESS`       | No       | Your Gmail address for sending emails        |
+| `NEXT_PUBLIC_BASE_PATH` | Build only | `/han_portfolio` for the Pages project URL |
 
-> **Note**: Contact form features require either Telegram or Gmail configuration (or both).
+The Pages workflow sets `NEXT_PUBLIC_BASE_PATH` automatically. Leave it unset in local development so `http://localhost:3000` works. Do not add credentials or private CV files to the repository.
 
 ---
 
@@ -288,11 +288,10 @@ All portfolio content is managed through data files in the `utils/data/` folder:
 ```javascript
 export const personalData = {
   name: "YOUR NAME",
-  profile: "/profile.png", // Path to your profile image
+  profile: "/your-image-name.jpg", // Path to your profile image
   designation: "Software Developer", // Your job title
   description: "Your bio and introduction...", // About yourself
   email: "your.email@example.com",
-  phone: "+1234567890",
   address: "City, Country",
   github: "https://github.com/yourusername",
   facebook: "https://www.facebook.com/yourprofile",
@@ -301,7 +300,6 @@ export const personalData = {
   stackOverflow: "https://stackoverflow.com/users/your-id",
   leetcode: "https://leetcode.com/yourusername/",
   devUsername: "yourusername", // dev.to username for blog integration
-  resume: "https://link-to-your-resume.pdf",
 };
 ```
 
@@ -313,7 +311,7 @@ export const personalData = {
 | `projects-data.js` | Portfolio projects with descriptions and links |
 | `skills.js`        | Technical skills and competencies              |
 | `educations.js`    | Academic background and certifications         |
-| `contactsData.js`  | Contact form configuration                     |
+| `contactsData.js`  | Contact details derived from `personal-data.js` |
 
 #### 🎨 Adding Your Profile Image
 
@@ -323,13 +321,15 @@ Place your profile picture in the `public/` directory and update the `profile` f
 profile: "/your-image-name.png"; // or .jpg, .webp
 ```
 
+To replace this site's photo, update `public/han-yawei.jpg`. Do not place private documents in `public/`: anyone who visits the site can download files there.
+
 ---
 
 ## Deployment :rocket:
 
-### 🚀 Deploy to Vercel (Recommended)
+GitHub Pages is configured above. The following options require setting up a separate hosting provider.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/said7388/developer-portfolio)
+### Alternative: Vercel
 
 **Manual Deployment:**
 
@@ -348,9 +348,7 @@ profile: "/your-image-name.png"; // or .jpg, .webp
 
 ---
 
-### 🌐 Deploy to Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/said7388/developer-portfolio)
+### Alternative: Netlify
 
 **Manual Deployment:**
 
@@ -379,39 +377,6 @@ docker-compose -f docker-compose.prod.yml up -d
 
 ## Tutorials :wrench:
 
-### 📧 Gmail App Password Setup
-
-1. Go to [https://myaccount.google.com/](https://myaccount.google.com/)
-2. Navigate to **Security** → **2-Step Verification** (enable if not already)
-3. Go to **Security** → **App Passwords**
-4. Select app: **Mail**, device: **Other (Custom name)**
-5. Generate and copy the 16-character password
-6. Add to `.env` file:
-
-```env
-GMAIL_PASSKEY=abcd efgh ijkl mnop
-EMAIL_ADDRESS=your.email@gmail.com
-```
-
----
-
-### 🤖 Create a Telegram Bot
-
-1. Open Telegram and search for `@BotFather`
-2. Send `/newbot` command
-3. Set bot name and username (must end with `bot`)
-4. Copy the bot token
-5. Send a message to your bot
-6. Get chat ID from: `https://api.telegram.org/bot<BOT_TOKEN>/getUpdates`
-7. Add to `.env` file:
-
-```env
-TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrsTUVwxyz
-TELEGRAM_CHAT_ID=123456789
-```
-
----
-
 ### 📝 Fetching Blog from dev.to
 
 1. Create a [dev.to](https://dev.to/) account
@@ -425,7 +390,7 @@ export const personalData = {
 };
 ```
 
-The portfolio automatically fetches and displays your latest public articles. No API key required.
+The portfolio fetches public articles at build time; redeploy to refresh them on GitHub Pages. No API key is required.
 
 ---
 
@@ -448,16 +413,11 @@ The portfolio automatically fetches and displays your latest public articles. No
 | **lottie-react**       | Lightweight animations with Lottie files   |
 | **react-fast-marquee** | Smooth scrolling marquee component         |
 | **react-icons**        | Popular icon library with easy integration |
-| **react-toastify**     | Beautiful notification toasts              |
 
 ### Functionality
 
 | Package                    | Purpose                           |
 | -------------------------- | --------------------------------- |
-| **axios**                  | Promise-based HTTP client         |
-| **nodemailer**             | Email sending functionality       |
-| **@emailjs/browser**       | Client-side email service         |
-| **react-google-recaptcha** | Google reCAPTCHA integration      |
 | **sharp**                  | High-performance image processing |
 | **@next/third-parties**    | Third-party script optimization   |
 
@@ -547,21 +507,6 @@ pnpm install
 - Ensure image files are committed to your repository
 
 </details>
-
-<details>
-<summary><strong>❌ Contact form not sending emails</strong></summary>
-
-**Solution:**
-
-- Verify Gmail App Password is correct (16 characters)
-- Check that 2-Step Verification is enabled on your Google account
-- Ensure `EMAIL_ADDRESS` matches the Gmail account
-- Test Telegram bot token and chat ID separately
-- Check browser console for error messages
-
-</details>
-
----
 
 ## Contributing :handshake:
 

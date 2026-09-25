@@ -23,7 +23,7 @@ async function getData() {
 };
 
 export default async function Home() {
-  const blogs = await getData();
+  const blogs = personalData.devUsername ? await getData() : [];
 
   return (
     <div suppressHydrationWarning >
@@ -33,7 +33,7 @@ export default async function Home() {
       <Skills />
       <Projects />
       <Education />
-      <Blog blogs={blogs} />
+      {blogs.length > 0 && <Blog blogs={blogs} />}
       <ContactSection />
     </div>
   )

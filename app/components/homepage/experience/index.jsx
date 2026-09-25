@@ -1,6 +1,7 @@
 // @flow strict
 
 import { experiences } from "@/utils/data/experience";
+import { publicAssetPath } from "@/utils/public-asset-path";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import experience from '../../../assets/lottie/code.json';
@@ -11,7 +12,7 @@ function Experience() {
   return (
     <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       <Image
-        src="/section.svg"
+        src={publicAssetPath("/section.svg")}
         alt="Hero"
         width={1572}
         height={795}
@@ -44,7 +45,7 @@ function Experience() {
                   <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
                     <div className="p-3 relative">
                       <Image
-                        src="/blur-23.svg"
+                        src={publicAssetPath("/blur-23.svg")}
                         alt="Hero"
                         width={1080}
                         height={200}
@@ -66,6 +67,13 @@ function Experience() {
                           <p className="text-sm sm:text-base">
                             {experience.company}
                           </p>
+                          {experience.highlights?.length > 0 && (
+                            <ul className="mt-3 list-disc space-y-1 pl-4 text-sm text-gray-300">
+                              {experience.highlights.map((highlight) => (
+                                <li key={highlight}>{highlight}</li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </div>
                     </div>
