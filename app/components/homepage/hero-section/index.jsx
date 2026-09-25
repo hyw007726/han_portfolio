@@ -6,7 +6,7 @@ import { publicAssetPath } from "@/utils/public-asset-path";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
-import { RiContactsFill } from "react-icons/ri";
+import { MdOutlineEmail } from "react-icons/md";
 import { SiLeetcode } from "react-icons/si";
 
 function HeroSection() {
@@ -39,17 +39,20 @@ function HeroSection() {
             </p>
           )}
 
-          <div className="mb-12 mt-8 flex items-center gap-5">
+          <div className="mt-8 flex items-center gap-5">
             {personalData.github && (
-              <Link href={personalData.github} target="_blank" aria-label="GitHub" className="text-white transition-all duration-300 hover:scale-125">
+              <Link href={personalData.github} target="_blank" aria-label="GitHub" title={personalData.github} className="text-white transition-all duration-300 hover:scale-125">
                 <FaGithub size={30} />
               </Link>
             )}
             {personalData.linkedIn && (
-              <Link href={personalData.linkedIn} target="_blank" aria-label="LinkedIn" className="text-[#0A66C2] transition-all duration-300 hover:scale-125">
+              <Link href={personalData.linkedIn} target="_blank" aria-label="LinkedIn" title={personalData.linkedIn} className="text-[#0A66C2] transition-all duration-300 hover:scale-125">
                 <FaLinkedin size={30} />
               </Link>
             )}
+            <a href="#contact" aria-label="Go to contact section" title={`Email: ${personalData.email}`} className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-violet-600 text-white shadow-md shadow-pink-500/30 transition-all duration-300 hover:scale-110 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-400">
+              <MdOutlineEmail size={20} />
+            </a>
             {personalData.facebook && (
               <Link href={personalData.facebook} target="_blank" aria-label="Facebook" className="transition-all text-pink-500 hover:scale-125 duration-300">
                 <FaFacebook size={30} />
@@ -65,16 +68,6 @@ function HeroSection() {
                 <FaTwitterSquare size={30} />
               </Link>
             )}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
-                <span>Contact me</span>
-                <RiContactsFill size={16} />
-              </button>
-            </Link>
-
           </div>
 
         </div>

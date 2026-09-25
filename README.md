@@ -321,6 +321,7 @@ profile: "/your-image-name.png"; // or .jpg, .webp
 ```
 
 To replace this site's photo, update `public/han-yawei.jpg`. Do not place private documents in `public/`: anyone who visits the site can download files there.
+The contact section loads `public/dublin-map.png` directly and displays it without cropping. Use a map you have permission to publish, keeping any required provider attributions visible.
 
 ---
 

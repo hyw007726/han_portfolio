@@ -1,10 +1,9 @@
 // @flow strict
 import { personalData } from '@/utils/data/personal-data';
+import { publicAssetPath } from '@/utils/public-asset-path';
+import Image from 'next/image';
 import Link from 'next/link';
-import { CiLocationOn } from "react-icons/ci";
-import { FaFacebook, FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
-import { FaXTwitter } from "react-icons/fa6";
-import { MdAlternateEmail } from "react-icons/md";
+import { MdLocationPin, MdOutlineEmail } from "react-icons/md";
 
 function ContactSection() {
   return (
@@ -15,64 +14,29 @@ function ContactSection() {
         </span>
         <span className="h-36 w-[2px] bg-[#1a1443]"></span>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        <div className="max-w-3xl rounded-lg border border-[#464c6a] p-5">
+      <div className="space-y-8 lg:space-y-12">
+        <div className="mx-auto w-full max-w-3xl rounded-lg border border-[#464c6a] p-5 text-center sm:p-8">
           <p className="mb-5 text-xl font-medium uppercase text-[#16f2b3]">Get in touch</p>
-          <p className="mb-6 text-[#d3d8e8]">Have a question or an opportunity? Reach me directly by email.</p>
-          <Link href={`mailto:${personalData.email}`} className="inline-flex rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-8 py-3 text-sm font-medium uppercase text-white">
-            Email me
+          <p className="mb-6 text-sm text-[#d3d8e8] sm:text-base">Have a question or an opportunity? I&apos;d love to hear from you.</p>
+          <Link href={`mailto:${personalData.email}`} className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-6 py-3 text-sm font-medium text-white transition-all hover:from-violet-600 hover:to-pink-500 sm:px-8">
+            <MdOutlineEmail size={20} className="shrink-0" aria-hidden="true" />
+            <span className="break-all">Email me at {personalData.email}</span>
           </Link>
         </div>
-        <div className="lg:w-3/4 ">
-          <div className="flex flex-col gap-5 lg:gap-9">
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <MdAlternateEmail
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <Link href={`mailto:${personalData.email}`}>{personalData.email}</Link>
+        <div className="overflow-hidden rounded-xl border border-[#353a52] bg-[#10172d]">
+          <Image
+            src={publicAssetPath('/dublin-map.png')}
+            alt={`${personalData.address} location image`}
+            width={1400}
+            height={350}
+            unoptimized
+            className="h-auto w-full"
+          />
+          <div className="border-t border-[#353a52] px-4 py-3 text-sm sm:px-6">
+            <p className="flex items-center gap-2">
+              <MdLocationPin className="text-violet-300" size={18} aria-hidden="true" />
+              {personalData.address}
             </p>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <CiLocationOn
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>
-                {personalData.address}
-              </span>
-            </p>
-          </div>
-          <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
-            {personalData.github && <Link target="_blank" href={personalData.github} aria-label="GitHub">
-              <FaGithub
-                className="text-white transition-transform duration-300 hover:scale-110"
-                size={42}
-              />
-            </Link>}
-            {personalData.linkedIn && <Link target="_blank" href={personalData.linkedIn} aria-label="LinkedIn">
-              <FaLinkedin
-                className="text-[#0A66C2] transition-transform duration-300 hover:scale-110"
-                size={42}
-              />
-            </Link>}
-            {personalData.twitter && <Link target="_blank" href={personalData.twitter} aria-label="Twitter">
-              <FaXTwitter
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>}
-            {personalData.stackOverflow && <Link target="_blank" href={personalData.stackOverflow} aria-label="Stack Overflow">
-              <FaStackOverflow
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>}
-            {personalData.facebook && <Link target="_blank" href={personalData.facebook} aria-label="Facebook">
-              <FaFacebook
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>}
           </div>
         </div>
       </div>

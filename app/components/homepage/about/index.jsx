@@ -21,11 +21,6 @@ function AboutSection() {
           <p className="text-gray-200 text-sm lg:text-lg">
             {personalData.description}
           </p>
-          {personalData.workAuthorization && (
-            <p className="mt-4 text-sm font-medium text-[#16f2b3] lg:text-base">
-              {personalData.workAuthorization}
-            </p>
-          )}
         </div>
         <div className="flex justify-center order-1 lg:order-2">
           <Image
