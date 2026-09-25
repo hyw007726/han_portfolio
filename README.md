@@ -286,6 +286,7 @@ export const personalData = {
   name: "YOUR NAME",
   profile: "/your-image-name.jpg", // Path to your profile image
   designation: "Software Developer", // Your job title
+  workAuthorization: "",
   description: "Your bio and introduction...", // About yourself
   email: "your.email@example.com",
   address: "City, Country",
@@ -298,6 +299,8 @@ export const personalData = {
   devUsername: "yourusername", // dev.to username for blog integration
 };
 ```
+
+Set `workAuthorization` to display it in the hero and About sections; leave it blank to hide it.
 
 #### 💼 Additional Data Files
 

@@ -5,8 +5,7 @@ import { skillsData } from "@/utils/data/skills";
 import { publicAssetPath } from "@/utils/public-asset-path";
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
 
@@ -34,15 +33,21 @@ function HeroSection() {
             <span className=" text-[#16f2b3]">{personalData.designation}</span>.
           </h1>
 
-          <div className="my-12 flex items-center gap-5">
+          {personalData.workAuthorization && (
+            <p className="mt-5 text-sm font-medium text-[#16f2b3] md:text-base">
+              {personalData.workAuthorization}
+            </p>
+          )}
+
+          <div className="mb-12 mt-8 flex items-center gap-5">
             {personalData.github && (
-              <Link href={personalData.github} target="_blank" aria-label="GitHub" className="transition-all text-pink-500 hover:scale-125 duration-300">
-                <BsGithub size={30} />
+              <Link href={personalData.github} target="_blank" aria-label="GitHub" className="text-white transition-all duration-300 hover:scale-125">
+                <FaGithub size={30} />
               </Link>
             )}
             {personalData.linkedIn && (
-              <Link href={personalData.linkedIn} target="_blank" aria-label="LinkedIn" className="transition-all text-pink-500 hover:scale-125 duration-300">
-                <BsLinkedin size={30} />
+              <Link href={personalData.linkedIn} target="_blank" aria-label="LinkedIn" className="text-[#0A66C2] transition-all duration-300 hover:scale-125">
+                <FaLinkedin size={30} />
               </Link>
             )}
             {personalData.facebook && (
